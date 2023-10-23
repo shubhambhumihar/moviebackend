@@ -18,7 +18,7 @@ databaseConnect();
 // });
 // app.use(cors());
 // Enable CORS for requests from 'http://localhost:5173'
-const allowedOrigins = ["https://movie-by-shubham.netlify.app/"];
+const allowedOrigins = ["https://movie-by-shubham.netlify.app"];
 const corsOptions = {
   origin: function (origin, callback) {
     if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
