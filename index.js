@@ -16,16 +16,21 @@ databaseConnect();
 // app.get("/", (req, res) => {
 //   res.send("Hello, Worldjhbhj!");
 // });
-// const corsOptions = {
-//   origin: "http://localhost:5173/", // Replace with your React app's URL
-//   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-//   credentials: true, // Pass cookies and HTTP authentication headers with requests
-// };
-// app.use(cors(corsOptions));
-app.use(cors());
+const corsOptions = {
+  origin: "http://localhost:5173/", // Replace with your React app's URL
+  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+  credentials: true, // Pass cookies and HTTP authentication headers with requests
+};
+
+app.use(cors(corsOptions));
+
 app.use(bodyParser.json({ limit: "30mb", extended: true }));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 app.use(cookieParser());
+
+app.get("/", (req, res) => {
+  res.send("Hello, World!");
+});
 
 app.use("/api/v1/user", userRouter);
 
